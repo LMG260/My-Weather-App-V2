@@ -107,11 +107,10 @@ function showTemp(response) {
 
   getForecast(response.data.coord);
 }
-//Search City
+
 function search(city) {
-  let searchCity = document.querySelector("#search-city");
   let apiKey = "318b89d1d3da782c38977be3d7f1cedb";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity.value}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemp);
 }
 
@@ -121,22 +120,7 @@ function handleSubmit(event) {
   search(inputCityElement.value);
 }
 
-//Current Location Button
-//function showLocation(position) {
-// let latitude = position.coords.latitude;
-// let longitude = position.coords.longitude;
-// let apiKey = "318b89d1d3da782c38977be3d7f1cedb";
-//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-// axios.get(apiUrl).then(showTemp);
-//}
-
-//function getCurrentPosition(event) {
-//event.preventDefault();
-//navigator.geolocation.getCurrentPosition(showLocation);
-//}
-
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
 
-//let button = document.querySelector("#button");
-//button.addEventListener("click", getCurrentPosition);
+search("Cardiff");
